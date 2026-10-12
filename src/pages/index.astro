@@ -12,17 +12,7 @@ import SiteHeader from "../components/SiteHeader.astro";
     <title>{site.seo.title}</title>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#home" aria-label="Tailor Forged home">
-        <span class="brand-mark">TF</span>
-        <span>TAILOR FORGED<small>MARKETING</small></span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#process">Our Process</a>
-        <a class="nav-cta" href="#contact">Get a Quote</a>
-      </nav>
-    </header>
+    <SiteHeader businessName={site.businessName} subbrand={site.subbrand} />
 
     <main>
       <section class="hero" id="home">
@@ -98,12 +88,25 @@ import SiteHeader from "../components/SiteHeader.astro";
     </main>
 
     <footer>
-      <a class="brand footer-brand" href="#home">
+      <a
+        class="brand footer-brand"
+        href="#home"
+        aria-label="Tailor Forged home"
+      >
         <span class="brand-mark">TF</span>
-        <span>TAILOR FORGED<small>MARKETING</small></span>
+        <span class="brand-text">
+          <span class="brand-name">{site.businessName.toUpperCase()}</span>
+          <small>{site.subbrand.toUpperCase()}</small>
+        </span>
       </a>
+
       <p>Thoughtful digital work for businesses ready to grow.</p>
-      <span>© {new Date().getFullYear()} Tailor Forged Marketing</span>
+
+      <span class="copyright">
+        © {new Date().getFullYear()}
+        <span class="brand-name"> {site.businessName} {site.subbrand}</span>
+        
+      </span>
     </footer>
   </body>
 </html>
@@ -268,54 +271,99 @@ import SiteHeader from "../components/SiteHeader.astro";
     background: #f8f7f4;
     color: #1e1e1c;
   }
+
   footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 24px;
     padding: 28px 7%;
+    border-top: 1px solid #e8e3db;
     font-size: 11px;
     color: #625d56;
   }
+
   .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     color: #1e1e1c;
+    text-decoration: none;
+    flex-shrink: 0;
   }
+
+  .footer-brand .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    background: #1e1e1c;
+    color: #f8f7f4;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .footer-brand .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    line-height: 1.1;
+  }
+
+  .footer-brand .brand-name {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    white-space: nowrap;
+  }
+
+  .footer-brand small {
+    font-size: 9px;
+    letter-spacing: 2.2px;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  footer .copyright {
+    white-space: nowrap;
+  }
+
   @media (max-width: 760px) {
-    .site-header {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-    nav {
-      width: 100%;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .hero {
-      padding: 75px 7%;
-    }
-    h1 {
-      letter-spacing: -1.8px;
-    }
-    .hero-stamp {
-      display: none;
-    }
-    .section,
-    .process-section {
-      padding: 60px 7%;
-    }
-    .service-grid,
-    .process-grid {
-      grid-template-columns: 1fr;
-    }
-    .contact-section {
-      align-items: flex-start;
-      flex-direction: column;
-      padding: 55px 7%;
-    }
     footer {
       align-items: flex-start;
       flex-direction: column;
+      gap: 16px;
     }
+  }
+  nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hero {
+    padding: 75px 7%;
+  }
+  h1 {
+    letter-spacing: -1.8px;
+  }
+  .hero-stamp {
+    display: none;
+  }
+  .section,
+  .process-section {
+    padding: 60px 7%;
+  }
+  .service-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-section {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 55px 7%;
   }
 </style>
