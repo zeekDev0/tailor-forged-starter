@@ -1,0 +1,206 @@
+
+---
+const services = [
+  {
+    number: "01",
+    title: "Website Design",
+    description:
+      "Clear, professional websites designed to turn visitors into potential customers.",
+  },
+  {
+    number: "02",
+    title: "Website Development",
+    description:
+      "Fast, responsive websites built around your business, services, and goals.",
+  },
+  {
+    number: "03",
+    title: "Website Care",
+    description:
+      "Ongoing updates, maintenance, and practical support as your business grows.",
+  },
+];
+
+const process = [
+  {
+    number: "01",
+    title: "Discover",
+    description: "We learn about your business, customers, and goals.",
+  },
+  {
+    number: "02",
+    title: "Build",
+    description: "We design and develop a website around your needs.",
+  },
+  {
+    number: "03",
+    title: "Support",
+    description: "We help keep your website reliable and up to date.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Professional websites and reliable website care for businesses ready to grow."
+    />
+    <meta name="theme-color" content="#f8f7f4" />
+    <title>Tailor Forged Marketing | Websites Built for Growth</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Tailor Forged home">
+        <span class="brand-mark">TF</span>
+        <span>TAILOR FORGED<small>MARKETING</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#process">Our Process</a>
+        <a class="nav-cta" href="#contact">Get a Quote</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <p class="eyebrow">BUILT WITH PURPOSE. DESIGNED TO PERFORM.</p>
+        <h1>Your business deserves a website that works as hard as you do.</h1>
+        <p class="hero-copy">
+          Professional websites and reliable website care for businesses
+          ready to grow.
+        </p>
+        <a class="button" href="#contact">Get a Website Quote <span>↗</span></a>
+        <p class="hero-note">Clear process. Thoughtful design. Dependable support.</p>
+        <div class="hero-stamp" aria-hidden="true">
+          <span>BUILT</span>
+          <strong>FOR</strong>
+          <span>GROWTH.</span>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-heading">
+          <p class="eyebrow">WHAT WE DO</p>
+          <h2>A stronger digital foundation.</h2>
+          <p>Practical digital services built around your business.</p>
+        </div>
+        <div class="service-grid">
+          {services.map((service) => (
+            <article class="service-card">
+              <span class="card-number">{service.number}</span>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <a href="#contact" aria-label={`Ask about ${service.title}`}>
+                Discuss your project ↗
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="process-section" id="process">
+        <div class="section-heading">
+          <p class="eyebrow">HOW WE WORK</p>
+          <h2>Simple by design.</h2>
+          <p>A clear process from the first conversation to ongoing support.</p>
+        </div>
+        <div class="process-grid">
+          {process.map((step) => (
+            <article class="process-card">
+              <span>{step.number}</span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div>
+          <p class="eyebrow">YOUR NEXT STEP</p>
+          <h2>Let's build something that moves your business forward.</h2>
+          <p>Tell us what your business needs. We'll start with a conversation.</p>
+        </div>
+        <a class="button button-light" href="mailto:hello@tailorforged.com">
+          Start a Project ↗
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-mark">TF</span>
+        <span>TAILOR FORGED<small>MARKETING</small></span>
+      </a>
+      <p>Thoughtful digital work for businesses ready to grow.</p>
+      <span>© {new Date().getFullYear()} Tailor Forged Marketing</span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(html) { scroll-behavior: smooth; }
+  :global(body) {
+    margin: 0;
+    background: #f8f7f4;
+    color: #1e1e1c;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+  }
+  :global(a) { color: inherit; text-decoration: none; }
+  .site-header {
+    min-height: 84px; padding: 18px 7%; display: flex;
+    align-items: center; justify-content: space-between; gap: 24px;
+    border-bottom: 1px solid #e8e3db;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; line-height: 1.4; }
+  .brand small { display: block; font-size: 9px; font-weight: 500; letter-spacing: 3px; }
+  .brand-mark { display: grid; place-items: center; width: 40px; height: 40px; background: #1e1e1c; color: #f8f7f4; font-size: 13px; letter-spacing: -1px; }
+  nav { display: flex; align-items: center; gap: 28px; font-size: 13px; }
+  nav a:not(.nav-cta) { color: #55514b; }
+  .nav-cta { border: 1px solid #1e1e1c; padding: 10px 16px; }
+  .hero { position: relative; overflow: hidden; padding: 115px 10% 105px; min-height: 540px; }
+  .eyebrow { color: #8b6a48; font-size: 11px; font-weight: 800; letter-spacing: 2px; }
+  h1 { max-width: 780px; margin: 22px 0; font-size: clamp(42px, 6vw, 76px); line-height: 1.06; letter-spacing: -3px; }
+  .hero-copy { max-width: 520px; color: #55514b; font-size: 18px; }
+  .button { display: inline-flex; align-items: center; gap: 20px; margin-top: 22px; padding: 15px 20px; background: #1e1e1c; color: white; font-size: 13px; font-weight: 700; }
+  .button span { color: #c5a17b; }
+  .hero-note { color: #777168; font-size: 12px; }
+  .hero-stamp { position: absolute; right: 9%; bottom: 95px; display: flex; flex-direction: column; border: 1px solid #d8cfc2; padding: 24px; color: #8b6a48; font-size: 10px; letter-spacing: 3px; transform: rotate(7deg); }
+  .hero-stamp strong { color: #1e1e1c; font-size: 29px; letter-spacing: 1px; }
+  .section, .process-section { padding: 85px 8%; }
+  .section-heading { max-width: 650px; margin-bottom: 36px; }
+  h2 { margin: 12px 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.15; letter-spacing: -1.5px; }
+  .section-heading > p:last-child, .service-card p, .process-card p { color: #625d56; }
+  .service-grid, .process-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .service-card { min-height: 230px; padding: 25px; border: 1px solid #e1dbd2; background: #fffefa; }
+  .card-number, .process-card > span { color: #8b6a48; font-size: 12px; font-weight: 800; }
+  .service-card h3, .process-card h3 { margin-bottom: 8px; font-size: 20px; }
+  .service-card p, .process-card p { font-size: 14px; }
+  .service-card a { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700; }
+  .process-section { background: #e8e3db; }
+  .process-card { padding: 12px 0; }
+  .contact-section { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding: 75px 8%; background: #1e1e1c; color: #f8f7f4; }
+  .contact-section > div { max-width: 650px; }
+  .contact-section .eyebrow { color: #c5a17b; }
+  .contact-section p:last-child { color: #c5c0b8; }
+  .button-light { flex-shrink: 0; background: #f8f7f4; color: #1e1e1c; }
+  footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 7%; font-size: 11px; color: #625d56; }
+  .footer-brand { color: #1e1e1c; }
+  @media (max-width: 760px) {
+    .site-header { align-items: flex-start; flex-direction: column; }
+    nav { width: 100%; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .hero { padding: 75px 7%; }
+    h1 { letter-spacing: -1.8px; }
+    .hero-stamp { display: none; }
+    .section, .process-section { padding: 60px 7%; }
+    .service-grid, .process-grid { grid-template-columns: 1fr; }
+    .contact-section { align-items: flex-start; flex-direction: column; padding: 55px 7%; }
+    footer { align-items: flex-start; flex-direction: column; }
+  }
+</style>
