@@ -1,11 +1,15 @@
 ---
-import { site } from "./data/site";
+import { site } from "../config/site";
 import SiteHeader from "../components/SiteHeader.astro";
 import HeroSection from "../components/HeroSection.astro";
 import ServiceSection from "../components/ServiceSection.astro";
 import ProcessSection from "../components/ProcessSection.astro";
 import ContactSection from "../components/ContactSection.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+
+const themeStyles = Object.entries(site.colors)
+  .map(([name, value]) => `--color-${name}: ${value}`)
+  .join("; ");
 ---
 
 <html lang="en">
@@ -16,8 +20,8 @@ import SiteFooter from "../components/SiteFooter.astro";
     <meta name="theme-color" content={site.colors.background} />
     <title>{site.seo.title}</title>
   </head>
-  <body>
-    <SiteHeader businessName={site.businessName} subbrand={site.subbrand} />
+  <body style={themeStyles}>
+    <SiteHeader />
 
     <main>
       <section class="hero" id="home">
@@ -54,8 +58,8 @@ import SiteFooter from "../components/SiteFooter.astro";
 
   :global(body) {
     margin: 0;
-    background: #f8f7f4;
-    color: #1e1e1c;
+    background: var(--color-background);
+    color: var(--color-foreground);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
   }
@@ -78,7 +82,7 @@ import SiteFooter from "../components/SiteFooter.astro";
   }
 
   :global(.process-section) {
-    background: #e8e3db;
+    background: var(--color-neutral);
   }
 
   :global(.contact-section) {
@@ -87,8 +91,8 @@ import SiteFooter from "../components/SiteFooter.astro";
     justify-content: space-between;
     gap: 36px;
     padding: 55px 7%;
-    background: #1e1e1c;
-    color: #f8f7f4;
+    background: var(--color-foreground);
+    color: var(--color-inverse);
   }
 
   :global(.contact-section > div) {
@@ -101,9 +105,9 @@ import SiteFooter from "../components/SiteFooter.astro";
     justify-content: space-between;
     gap: 24px;
     padding: 28px 7%;
-    border-top: 1px solid #e8e3db;
+    border-top: 1px solid var(--color-neutral);
     font-size: 11px;
-    color: #625d56;
+    color: var(--color-muted);
   }
 
   @media (min-width: 900px) {
