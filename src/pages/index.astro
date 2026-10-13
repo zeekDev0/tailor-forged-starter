@@ -8,7 +8,7 @@ import ContactSection from "../components/ContactSection.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
 const themeStyles = Object.entries(site.colors)
-  .map(([name, value]) => `--color-${name}: ${value}`)
+  .map(([name, value]) => `--color-${name.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}: ${value}`)
   .join("; ");
 ---
 
