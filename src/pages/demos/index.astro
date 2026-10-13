@@ -1,0 +1,70 @@
+---
+import { profiles } from "../../config/profiles";
+
+const demoCards = [
+  { slug: "automotive", industry: "Automotive", outcome: "Show repair services, maintenance options, and service inquiries." },
+  { slug: "hairdresser", industry: "Hairdresser / Salon", outcome: "Present stylist services, work examples, and appointment paths." },
+  { slug: "hvac", industry: "Heating & Cooling", outcome: "Guide homeowners to repairs, maintenance, and estimate requests." },
+  { slug: "retirement-home", industry: "Senior Living", outcome: "Explain living options, community life, and family tour inquiries." },
+  { slug: "recording-artist", industry: "Recording Artist", outcome: "Feature artist biography, album promotion, merch, and booking details." },
+  { slug: "music-producer", industry: "Producer / Studio", outcome: "Organize beats, mixing, mastering, and studio-time inquiries." },
+] as const;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Explore Tailor Forged Marketing's six reusable industry website demo templates." />
+    <meta name="theme-color" content="#F8F7F4" />
+    <title>Industry Website Demos | Tailor Forged Marketing</title>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/" aria-label="Tailor Forged Marketing home"><span class="mark">TF</span><span>TAILOR FORGED<small>MARKETING</small></span></a>
+      <a class="back-link" href="/">Back to Tailor Forged ↗</a>
+    </header>
+    <main>
+      <p class="eyebrow">REPEATABLE WEBSITE PRODUCTION</p>
+      <h1>Six industries. One reliable production system.</h1>
+      <p class="intro">These are sample website directions built from shared components and industry-specific configuration. Select a demo to explore the layout and copy. Each one still needs real business details, approved assets, and any required integrations before it can launch.</p>
+      <div class="demo-grid">
+        {demoCards.map((card, index) => (
+          <article class="demo-card">
+            <span class="number">{String(index + 1).padStart(2, "0")}</span>
+            <p class="eyebrow">{card.industry}</p>
+            <h2>{profiles[card.slug].businessName}</h2>
+            <p>{card.outcome}</p>
+            <a href={`/${card.slug}/`}>Explore template <span aria-hidden="true">↗</span></a>
+          </article>
+        ))}
+      </div>
+    </main>
+    <footer>© {new Date().getFullYear()} Tailor Forged Marketing · Sample templates, not live client sites.</footer>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(body) { margin: 0; background: #F8F7F4; color: #1E1E1C; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+  :global(a) { color: inherit; text-decoration: none; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 8%; border-bottom: 1px solid #E8E3DB; }
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; }
+  .mark { display: grid; place-items: center; width: 40px; height: 40px; background: #1E1E1C; color: #F8F7F4; }
+  small { display: block; font-size: 9px; font-weight: 500; letter-spacing: 3px; }
+  .back-link { font-size: 12px; }
+  main { max-width: 1300px; margin: 0 auto; padding: 72px 8% 90px; }
+  .eyebrow { color: #8B6A48; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+  h1 { max-width: 850px; margin: 14px 0 20px; font-size: clamp(42px, 6vw, 72px); line-height: 1.04; letter-spacing: -2px; }
+  .intro { max-width: 740px; color: #625D56; }
+  .demo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 46px; }
+  .demo-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 260px; padding: 24px; border: 1px solid #D8CFC2; background: #FFFEFA; }
+  .number { color: #8B6A48; font-size: 12px; font-weight: 800; }
+  .demo-card .eyebrow { margin: 22px 0 0; }
+  h2 { margin: 8px 0; font-size: 24px; line-height: 1.2; }
+  .demo-card > p:not(.eyebrow) { color: #625D56; font-size: 14px; }
+  .demo-card a { margin-top: auto; padding-top: 20px; font-size: 12px; font-weight: 800; }
+  footer { padding: 24px 8%; border-top: 1px solid #E8E3DB; color: #625D56; font-size: 11px; }
+  @media (max-width: 850px) { .demo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } main { padding-top: 56px; } }
+  @media (max-width: 560px) { header { align-items: flex-start; flex-direction: column; } main { padding: 44px 7% 60px; } .demo-grid { grid-template-columns: 1fr; } }
+</style>
