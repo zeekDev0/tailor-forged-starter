@@ -13,3 +13,34 @@ import { site } from "../pages/data/site";
   {site.contact.buttonText}
   <span>↗</span>
 </a>
+
+<style>
+  .contact-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    padding: 75px 8%;
+    background: #1e1e1c;
+    color: #f8f7f4;
+  }
+  .contact-section > div {
+    max-width: 650px;
+  }
+  .contact-section .eyebrow {
+    color: #c5a17b;
+  }
+  .contact-section p:last-child {
+    color: #c5c0b8;
+  }
+  .button-light {
+    flex-shrink: 0;
+    background: #f8f7f4;
+    color: #1e1e1c;
+  }
+  .contact-section {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 55px 7%;
+  }
+</style>
