@@ -107,18 +107,18 @@ export const site = {
   },
 } as const;
 
-const requiredText = [
-  ["businessName", site.businessName],
-  ["subbrand", site.subbrand],
-  ["brandMark", site.brandMark],
-  ["SEO title", site.seo.title],
-  ["SEO description", site.seo.description],
-  ["hero heading", site.hero.heading],
-  ["contact heading", site.contact.heading],
-  ["footer tagline", site.footer.tagline],
-] as const;
-
 export function validateSiteConfig(config: typeof site = site): void {
+  const requiredText = [
+    ["businessName", config.businessName],
+    ["subbrand", config.subbrand],
+    ["brandMark", config.brandMark],
+    ["SEO title", config.seo.title],
+    ["SEO description", config.seo.description],
+    ["hero heading", config.hero.heading],
+    ["contact heading", config.contact.heading],
+    ["footer tagline", config.footer.tagline],
+  ] as const;
+
   const missing = requiredText
     .filter(([, value]) => !value.trim())
     .map(([label]) => label);
