@@ -2,47 +2,42 @@
 import { site } from "../pages/data/site";
 ---
 
-  <p class="eyebrow">{site.hero.eyebrow}</p>
-  <h1>{site.hero.heading}</h1>
-  <p class="hero-copy">{site.hero.description}</p>
-  <a class="button" href="#contact">
-    {site.hero.buttonText}
-    <span>↗</span>
-  </a>
-  <p class="hero-note">{site.hero.note}</p>
-  <div class="hero-stamp" aria-hidden="true">
-    <span>BUILT</span>
-    <strong>FOR</strong>
-    <span>GROWTH.</span>
-  </div>
-
+<p class="eyebrow">{site.hero.eyebrow}</p>
+<h1>{site.hero.heading}</h1>
+<p class="hero-copy">{site.hero.description}</p>
+<a class="button" href="#contact">
+  {site.hero.buttonText}
+  <span aria-hidden="true">↗</span>
+</a>
+<p class="hero-note">{site.hero.note}</p>
+<div class="hero-stamp" aria-hidden="true">
+  <span>BUILT</span>
+  <strong>FOR</strong>
+  <span>GROWTH.</span>
+</div>
 
 <style>
-
-  .hero {
-    position: relative;
-    overflow: hidden;
-    padding: 115px 10% 105px;
-    min-height: 540px;
-  }
   .eyebrow {
     color: #8b6a48;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
   }
+
   h1 {
     max-width: 780px;
     margin: 22px 0;
     font-size: clamp(42px, 6vw, 76px);
     line-height: 1.06;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
   }
+
   .hero-copy {
     max-width: 520px;
     color: #55514b;
     font-size: 18px;
   }
+
   .button {
     display: inline-flex;
     align-items: center;
@@ -50,21 +45,24 @@ import { site } from "../pages/data/site";
     margin-top: 22px;
     padding: 15px 20px;
     background: #1e1e1c;
-    color: white;
+    color: #fff;
     font-size: 13px;
     font-weight: 700;
   }
+
   .button span {
     color: #c5a17b;
   }
+
   .hero-note {
     color: #777168;
     font-size: 12px;
   }
+
   .hero-stamp {
     position: absolute;
     right: 9%;
-    bottom: 95px;
+    bottom: 70px;
     display: flex;
     flex-direction: column;
     border: 1px solid #d8cfc2;
@@ -74,19 +72,20 @@ import { site } from "../pages/data/site";
     letter-spacing: 3px;
     transform: rotate(7deg);
   }
+
   .hero-stamp strong {
     color: #1e1e1c;
     font-size: 29px;
     letter-spacing: 1px;
   }
-    .hero {
-    padding: 75px 7%;
+
+  @media (max-width: 760px) {
+    h1 {
+      letter-spacing: -1.5px;
+    }
+
+    .hero-stamp {
+      display: none;
+    }
   }
-  h1 {
-    letter-spacing: -1.8px;
-  }
-  .hero-stamp {
-    display: none;
-  }
- 
 </style>

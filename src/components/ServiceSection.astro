@@ -7,6 +7,7 @@ import { site } from "../pages/data/site";
   <h2>A stronger digital foundation.</h2>
   <p>Practical digital services built around your business.</p>
 </div>
+
 <div class="service-grid">
   {
     site.services.map((service) => (
@@ -23,58 +24,69 @@ import { site } from "../pages/data/site";
 </div>
 
 <style>
-
-  .section,
-  {
-    padding: 85px 8%;
-  }
   .section-heading {
     max-width: 650px;
     margin-bottom: 36px;
   }
+
+  .eyebrow {
+    color: #8b6a48;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
   h2 {
     margin: 12px 0;
     font-size: clamp(30px, 4vw, 46px);
     line-height: 1.15;
     letter-spacing: -1.5px;
   }
+
   .section-heading > p:last-child,
-  .service-card p{
+  .service-card p {
     color: #625d56;
   }
-  .service-grid{
+
+  .service-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
   }
+
   .service-card {
+    min-width: 0;
     min-height: 230px;
     padding: 25px;
     border: 1px solid #e1dbd2;
     background: #fffefa;
   }
-  .card-number > span {
+
+  .card-number {
     color: #8b6a48;
     font-size: 12px;
     font-weight: 800;
   }
+
   .service-card h3 {
     margin-bottom: 8px;
     font-size: 20px;
   }
+
   .service-card p {
     font-size: 14px;
   }
+
   .service-card a {
     display: inline-block;
     margin-top: 12px;
     font-size: 12px;
     font-weight: 700;
   }
-  .section{
-    padding: 60px 7%;
-  }
-  .service-grid{
-    grid-template-columns: 1fr;
+
+  @media (max-width: 760px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

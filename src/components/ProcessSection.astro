@@ -7,6 +7,7 @@ import { site } from "../pages/data/site";
   <h2>Simple by design.</h2>
   <p>A clear process from the first conversation to ongoing support.</p>
 </div>
+
 <div class="process-grid">
   {
     site.process.map((step) => (
@@ -20,52 +21,62 @@ import { site } from "../pages/data/site";
 </div>
 
 <style>
-  .process-section {
-    padding: 85px 8%;
+  .section-heading {
+    max-width: 650px;
+    margin-bottom: 36px;
   }
-  .process-section .eyebrow {
+
+  .eyebrow {
     color: #8b6a48;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
-  },
+  }
 
+  h2 {
+    margin: 12px 0;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+  }
+
+  .section-heading > p:last-child,
   .process-card p {
     color: #625d56;
   }
+
   .process-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
   }
+
   .process-card {
     display: flex;
+    min-width: 0;
     flex-direction: column;
     gap: 8px;
+    padding: 12px 0;
   }
+
   .process-card > span {
     color: #8b6a48;
     font-size: 12px;
     font-weight: 800;
   }
+
   .process-card h3 {
     margin-bottom: 8px;
     font-size: 20px;
   }
+
   .process-card p {
     font-size: 14px;
   }
-  .process-section {
-    background: #e8e3db;
-  }
-  .process-card {
-    padding: 12px 0;
-  }
-  .process-section {
-    padding: 60px 7%;
-  }
-    .process-grid {
-    grid-template-columns: 1fr;
-  }
 
+  @media (max-width: 760px) {
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
