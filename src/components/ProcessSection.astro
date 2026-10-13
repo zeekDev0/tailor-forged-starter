@@ -1,0 +1,20 @@
+---
+import { site } from "../pages/data/site";
+---
+
+<div class="section-heading">
+  <p class="eyebrow">HOW WE WORK</p>
+  <h2>Simple by design.</h2>
+  <p>A clear process from the first conversation to ongoing support.</p>
+</div>
+<div class="process-grid">
+  {
+    site.process.map((step) => (
+      <article class="process-card">
+        <span>{step.number}</span>
+        <h3>{step.title}</h3>
+        <p>{step.description}</p>
+      </article>
+    ))
+  }
+</div>

@@ -1,0 +1,18 @@
+---
+import { site } from "../pages/data/site";
+---
+
+<a class="brand footer-brand" href="#home" aria-label="Tailor Forged home">
+  <span class="brand-mark">TF</span>
+  <span class="brand-text">
+    <span class="brand-name">{site.businessName.toUpperCase()}</span>
+    <small>{site.subbrand.toUpperCase()}</small>
+  </span>
+</a>
+
+<p>Thoughtful digital work for businesses ready to grow.</p>
+
+<span class="copyright">
+  © {new Date().getFullYear()}
+  <span class="brand-name"> {site.businessName} {site.subbrand}</span>
+</span>

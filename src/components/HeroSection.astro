@@ -1,0 +1,19 @@
+---
+import { site } from "../pages/data/site";
+---
+
+<section class="hero" id="home">
+  <p class="eyebrow">{site.hero.eyebrow}</p>
+  <h1>{site.hero.heading}</h1>
+  <p class="hero-copy">{site.hero.description}</p>
+  <a class="button" href="#contact">
+    {site.hero.buttonText}
+    <span>↗</span>
+  </a>
+  <p class="hero-note">{site.hero.note}</p>
+  <div class="hero-stamp" aria-hidden="true">
+    <span>BUILT</span>
+    <strong>FOR</strong>
+    <span>GROWTH.</span>
+  </div>
+</section>

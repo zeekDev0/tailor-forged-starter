@@ -1,0 +1,15 @@
+---
+import { site } from "../pages/data/site";
+---
+
+<div>
+  <p class="eyebrow">{site.contact.eyebrow}</p>
+  <h2>{site.contact.heading}</h2>
+  <p>
+    {site.contact.description}
+  </p>
+</div>
+<a class="button button-light" href={site.email}>
+  {site.contact.buttonText}
+  <span>↗</span>
+</a>
