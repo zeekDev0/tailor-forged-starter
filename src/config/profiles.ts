@@ -286,7 +286,7 @@ for (const [slug, profile] of Object.entries(profiles)) {
   if (requiredText.some((value) => !value.trim())) {
     throw new Error(`Industry profile "${slug}" has missing required text.`);
   }
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(profile.email)) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) {
     throw new Error(`Industry profile "${slug}" has an invalid email address.`);
   }
   const invalidColors = Object.entries(profile.colors).filter(([, value]) => !/^#[0-9a-fA-F]{6}$/.test(value));
