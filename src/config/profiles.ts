@@ -267,3 +267,36 @@ export const profiles = {
 
 export type ProfileSlug = keyof typeof profiles;
 export type IndustryProfile = (typeof profiles)[ProfileSlug];
+
+
+const allowedAnchors = new Set(["#home", "#about", "#services", "#process", "#showcase", "#contact"]);
+
+for (const [slug, profile] of Object.entries(profiles)) {
+  const requiredText = [
+    profile.businessName,
+    profile.subbrand,
+    profile.brandMark,
+    profile.seo.title,
+    profile.seo.description,
+    profile.hero.heading,
+    profile.about.heading,
+    profile.contact.heading,
+    profile.footer.tagline,
+  ];
+  if (requiredText.some((value) => !value.trim())) {
+    throw new Error(`Industry profile "${slug}" has missing required text.`);
+  }
+  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(profile.email)) {
+    throw new Error(`Industry profile "${slug}" has an invalid email address.`);
+  }
+  const invalidColors = Object.entries(profile.colors).filter(([, value]) => !/^#[0-9a-fA-F]{6}$/.test(value));
+  if (invalidColors.length > 0) {
+    throw new Error(`Industry profile "${slug}" has invalid theme colors: ${invalidColors.map(([name]) => name).join(", ")}`);
+  }
+  if (profile.services.length === 0 || profile.process.length === 0 || profile.showcase.items.length === 0) {
+    throw new Error(`Industry profile "${slug}" must define services, process steps, and showcase items.`);
+  }
+  if (profile.navigation.some((item) => !item.label.trim() || !allowedAnchors.has(item.href))) {
+    throw new Error(`Industry profile "${slug}" has an invalid navigation label or target.`);
+  }
+}
