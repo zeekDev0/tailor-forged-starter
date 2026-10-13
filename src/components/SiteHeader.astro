@@ -1,25 +1,22 @@
 ---
-interface Props {
-  businessName: string;
-  subbrand: string;
-}
-
-const { businessName, subbrand } = Astro.props;
+import { site } from "../config/site";
 ---
 
 <header class="site-header">
-  <a class="brand" href="#home" aria-label={`${businessName} home`}>
-    <span class="brand-mark">TF</span>
+  <a class="brand" href="#home" aria-label={`${site.businessName} home`}>
+    <span class="brand-mark">{site.brandMark}</span>
     <span>
-      {businessName.toUpperCase()}
-      <small>{subbrand.toUpperCase()}</small>
+      {site.businessName.toUpperCase()}
+      <small>{site.subbrand.toUpperCase()}</small>
     </span>
   </a>
 
   <nav aria-label="Main navigation">
-    <a href="#services">Services</a>
-    <a href="#process">Our Process</a>
-    <a class="nav-cta" href="#contact">Get a Quote</a>
+    {site.navigation.map((item) => (
+      <a class:list={["nav-link", { "nav-cta": "emphasis" in item && item.emphasis }]} href={item.href}>
+        {item.label}
+      </a>
+    ))}
   </nav>
 </header>
 
@@ -31,7 +28,7 @@ const { businessName, subbrand } = Astro.props;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    border-bottom: 1px solid #e8e3db;
+    border-bottom: 1px solid var(--color-neutral);
   }
 
   .brand {
@@ -58,8 +55,8 @@ const { businessName, subbrand } = Astro.props;
     place-items: center;
     width: 40px;
     height: 40px;
-    background: #1e1e1c;
-    color: #f8f7f4;
+    background: var(--color-foreground);
+    color: var(--color-inverse);
     font-size: 13px;
     letter-spacing: -1px;
   }
@@ -72,14 +69,14 @@ const { businessName, subbrand } = Astro.props;
   }
 
   nav a {
-    color: #55514b;
+    color: var(--color-secondary);
     text-decoration: none;
   }
 
   nav .nav-cta {
-    border: 1px solid #1e1e1c;
+    border: 1px solid var(--color-foreground);
     padding: 10px 16px;
-    color: #1e1e1c;
+    color: var(--color-foreground);
   }
 
   @media (max-width: 760px) {
