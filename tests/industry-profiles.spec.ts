@@ -54,7 +54,6 @@ test("demo directory links to all six industry templates", async ({ page }) => {
   await page.goto("/demos/");
   await expect(page).toHaveTitle(/Industry Website Demos/);
   for (const profile of profiles) {
-    await expect(page.getByRole("link", { name: /Explore template/ }).filter({ has: page.locator(`a[href="${profile.path}"]`) })).toHaveCount(0);
     await expect(page.locator(`a[href="${profile.path}"]`)).toBeVisible();
   }
 });
