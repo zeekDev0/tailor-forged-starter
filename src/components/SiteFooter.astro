@@ -1,16 +1,16 @@
 ---
-import { site } from "../pages/data/site";
+import { site } from "../config/site";
 ---
 
 <a class="brand footer-brand" href="#home" aria-label={`${site.businessName} home`}>
-  <span class="brand-mark">TF</span>
+  <span class="brand-mark">{site.brandMark}</span>
   <span class="brand-text">
     <span class="brand-name">{site.businessName.toUpperCase()}</span>
     <small>{site.subbrand.toUpperCase()}</small>
   </span>
 </a>
 
-<p>Thoughtful digital work for businesses ready to grow.</p>
+<p>{site.footer.tagline}</p>
 
 <span class="copyright">
   © {new Date().getFullYear()}
@@ -22,7 +22,7 @@ import { site } from "../pages/data/site";
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: #1e1e1c;
+    color: var(--color-foreground);
     text-decoration: none;
     flex-shrink: 0;
   }
@@ -32,8 +32,8 @@ import { site } from "../pages/data/site";
     place-items: center;
     width: 36px;
     height: 36px;
-    background: #1e1e1c;
-    color: #f8f7f4;
+    background: var(--color-foreground);
+    color: var(--color-inverse);
     font-size: 12px;
     font-weight: 700;
     flex-shrink: 0;

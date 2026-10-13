@@ -1,11 +1,11 @@
 ---
-import { site } from "../pages/data/site";
+import { site } from "../config/site";
 ---
 
 <div class="section-heading">
-  <p class="eyebrow">WHAT WE DO</p>
-  <h2>A stronger digital foundation.</h2>
-  <p>Practical digital services built around your business.</p>
+  <p class="eyebrow">{site.servicesSection.eyebrow}</p>
+  <h2>{site.servicesSection.heading}</h2>
+  <p>{site.servicesSection.description}</p>
 </div>
 
 <div class="service-grid">
@@ -15,8 +15,8 @@ import { site } from "../pages/data/site";
         <span class="card-number">{service.number}</span>
         <h3>{service.title}</h3>
         <p>{service.description}</p>
-        <a href="#contact" aria-label={`Ask about ${service.title}`}>
-          Discuss your project ↗
+        <a href="#contact" aria-label={`${site.servicesSection.cardLinkText} about ${service.title}`}>
+          {site.servicesSection.cardLinkText} ↗
         </a>
       </article>
     ))
@@ -30,7 +30,7 @@ import { site } from "../pages/data/site";
   }
 
   .eyebrow {
-    color: #8b6a48;
+    color: var(--color-accent);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -45,7 +45,7 @@ import { site } from "../pages/data/site";
 
   .section-heading > p:last-child,
   .service-card p {
-    color: #625d56;
+    color: var(--color-muted);
   }
 
   .service-grid {
@@ -58,12 +58,12 @@ import { site } from "../pages/data/site";
     min-width: 0;
     min-height: 230px;
     padding: 25px;
-    border: 1px solid #e1dbd2;
-    background: #fffefa;
+    border: 1px solid var(--color-neutral);
+    background: var(--color-card);
   }
 
   .card-number {
-    color: #8b6a48;
+    color: var(--color-accent);
     font-size: 12px;
     font-weight: 800;
   }
